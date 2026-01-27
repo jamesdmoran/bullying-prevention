@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outside | Bullying Prevention Initiative</title>
+    <style>
+        /* CSS: The Visual Styling */
+        :root {
+            --bg-color: #ffffff;
+            --text-main: #111111;
+            --text-secondary: #555555;
+            --accent: #2563EB; /* Professional Blue */
+            --border: #e5e5e5;
+            --font-stack: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            font-family: var(--font-stack);
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+
+        /* Navigation */
+        nav {
+            border-bottom: 1px solid var(--border);
+            padding: 20px 40px;
+            position: sticky;
+            top: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(5px);
+        }
+
+        .nav-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.6rem;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+        }
+
+        .nav-links button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 0.95rem;
+            margin-left: 20px;
+            color: var(--text-secondary);
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 4px;
+            transition: all 0.2s;
+        }
+
+        .nav-links button:hover {
+            color: var(--text-main);
+            background-color: #f5f5f5;
+        }
+
+        .nav-links button.active {
+            color: var(--text-main);
+            background-color: #eee;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 720px; /* Narrow width for better reading experience */
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            letter-spacing: -0.03em;
+        }
+
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 10px;
+        }
+
+        h3 {
+            font-size: 1.05rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+            color: var(--text-secondary);
+        }
+
+        ul {
+            margin-bottom: 1.5rem;
+            padding-left: 20px;
+            color: var(--text-secondary);
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        a {
+            color: var(--text-main);
+            text-decoration: underline;
+            text-decoration-color: var(--border);
+            text-underline-offset: 3px;
+        }
+
+        a:hover {
+            text-decoration-color: var(--accent);
+            color: var(--accent);
+        }
+
+        /* Specific Styles */
+        .page-section {
+            display: none; /* Hidden by default */
+            animation: fadeIn 0.3s ease-in-out;
+        }
+
+        .page-section.visible {
+            display: block; /* Shown when active */
+        }
+
+        .advisor-item {
+            margin-bottom: 30px;
+        }
+
+        .advisor-name {
+            font-weight: 700;
+            display: block;
+            color: var(--text-main);
+        }
+
+        .advisor-meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .callout-box {
+            background-color: #f9f9f9;
+            border: 1px solid var(--border);
+            padding: 20px;
+            border-radius: 8px;
+            margin: 30px 0;
+        }
+
+        .btn-apply {
+            display: inline-block;
+            background-color: var(--text-main);
+            color: #fff;
+            padding: 12px 24px;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: 600;
+            margin-top: 20px;
+        }
+        
+        .btn-apply:hover {
+            background-color: #333;
+            color: #fff;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 600px) {
+            nav {
+                padding: 15px 20px;
+            }
+
+            .nav-inner {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .nav-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 5px;
+            }
+
+            .nav-links button {
+                margin-left: 0;
+                font-size: 0.85rem;
+                padding: 8px 12px;
+            }
+
+            .container {
+                margin: 30px auto;
+                padding: 0 16px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-inner">
+            <div class="logo">Outside</div>
+            <div class="nav-links">
+                <button onclick="showPage('home')" id="nav-home" class="active">The Program</button>
+                <button onclick="showPage('role')" id="nav-role">Director Role</button>
+                <button onclick="showPage('advisors')" id="nav-advisors">Advisors</button>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+
+        <div id="home" class="page-section visible">
+            <h1>Virtual group therapy for bullying victims</h1>
+            
+            <p>Group therapy is an excellent way to help chronic bullying victims, but represents less than 2% of psychotherapy services.</p>
+            
+            <h3>So why isn't there more group therapy?</h3>
+            <ol>
+                <li><strong>Population size</strong>: Sourcing groups of similar aged students available at the same time requires a pool of participants larger than most communities</li>
+                <li><strong>Stigma</strong>: Many victims don't report bullying out of fear of retalation</li>
+                <li><strong>Complexity</strong>: Groups require marketing and admin beyond the capabilities of most practices</li>
+            </ol>
+
+            <h3>We’re starting a new, ambitious non-profit solving all three problems at once:</h3>
+            <ul>
+                <li><strong>Zoom-based, counselor-led cohorts</strong> of students of similar ages and interests</li>
+                <li><strong>Statewide reach:</strong> Participants are located across the state. No participants attend the same school</li>
+                <li><strong>Structured Curriculum:</strong> Six sessions focused on demystifying bullying, problem solving and coping skills, with an additional session for parents</li>
+                <li><strong>Trusted Referral Channel:</strong> A pathway for school counselors to refer families experiencing bullying</li>
+                <li><strong>Full Support:</strong> We handle all marketing, coordination, scheduling, insurance and technology so counselors can simply login, provide care, and earn a higher rate than they would with individual sessions</li>
+            </ul>
+
+            <h3>We've already proven this works:</h3>
+            <p>We have been successfully piloting the initiative for over a year in a clinical setting <a href="https://bravelab.unl.edu/current-research/belong/" target="_blank">(University of Nebraska - Brave Lab)</a> and have developed a detailed curriculum that's driving meaningful results.</p>
+
+            <div class="callout-box">
+                <p style="margin-bottom: 10px;"><strong>We're hiring a Founding Director</strong></p>
+                <p style="margin-top:0;">We're looking for a Dallas-based leader to launch and scale this initiative. If you're a proven operator passionate about bullying prevention, we'd love to hear from you.</p>
+                <a href="#" onclick="showPage('role'); return false;" style="font-weight: 600;">View the Director Role &rarr;</a>
+            </div>
+        </div>
+
+        <div id="role" class="page-section">
+            <h1>Founding Director</h1>
+            <p><strong>Location:</strong> Dallas, Texas</p>
+
+            <p>Group therapy is an excellent way to help chronic bullying victims, but represents less than 2% of psychotherapy services. We're launching an ambitious non-profit to change that.</p>
+
+            <p>Our model removes the three biggest barriers to group care: sourcing a large enough pool of similar-aged participants, reducing stigma, and handling the operational complexity that most practices cannot absorb.</p>
+
+            <p>We deliver Zoom-based, counselor-led cohorts with statewide reach (so participants never attend with peers from their own school), a structured six-session curriculum plus a parent session, and a trusted referral pathway for school counselors. We also handle marketing, coordination, scheduling, insurance, and technology so counselors can focus on care.</p>
+
+            <p>This is a fully funded non-profit by a Dallas family passionate about the bullying prevention cause.</p>
+
+            <p>We have been successfully piloting the initiative for over a year in a clinical setting <a href="https://bravelab.unl.edu/current-research/belong/" target="_blank">(University of Nebraska - Brave Lab)</a> and have developed a detailed curriculum that is driving meaningful results.</p>
+
+            <h3>Your Mandate</h3>
+            <p>We are hiring a Dallas-based Director to launch and lead this initiative. Your primary responsibilities:</p>
+            <ul>
+                <li><strong>Build a playbook</strong> to develop relationships with every middle school guidance counselor in TX and eventually the country.</li>
+                <li><strong>Recruit, interview and onboard counselors</strong> to our curriculum.</li>
+                <li><strong>Ensure a high level of execution</strong> of virtual group therapy cohorts, satisfaction from participants and facilitators.</li>
+                <li><strong>Consult our clinical panel</strong> of bullying experts to ensure safety and best practices.</li>
+                <li><strong>Hire a team</strong> to scale your efforts.</li>
+            </ul>
+
+            <h3>Ideal Candidate</h3>
+            <p>This is a leadership role for a <strong>proven operator</strong> with experience scaling a fast growing healthcare organization.</p>
+            <ul>
+                <li>Therapy / caregiving experience is not required, but you should have experience leading care providers.</li>
+                <li>Non-profit experience is not required. This will be a high performance, high growth organization.</li>
+                <li>You should be passionate about helping young people overcome bullying.</li>
+            </ul>
+
+            <h3>Compensation</h3>
+            <p>We aim to attract the best possible talent and will offer attractive compensation commensurate with your experience and the intensity required to scale this initiative.</p>
+
+            <p>Apply via email: <a href="mailto:team@outsidesupport.org?subject=Director Application">team@outsidesupport.org</a></p>
+        </div>
+
+        <div id="advisors" class="page-section">
+            <h1>Advisors</h1>
+            <p>We are supported by a panel of experts in clinical care, research, and bullying prevention.</p>
+            
+            <div style="margin-top: 40px;">
+                
+                <div class="advisor-item">
+                    <span class="advisor-name">Dr. Spencer Byrnes, PsyD</span>
+                    <div class="advisor-meta">
+                        Private practice with expertise in group therapy for bullying<br>
+                        <a href="https://www.linkedin.com/in/spencer-byrnes-psy-d-78531678/" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="advisor-item">
+                    <span class="advisor-name">Christine Cauwels</span>
+                    <div class="advisor-meta">
+                        Clinical Director of Therapy, Cerebral<br>
+                        <a href="https://www.linkedin.com/in/christine-cauwels-73a103252/" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="advisor-item">
+                    <span class="advisor-name">Dr. Sara Heron, MD</span>
+                    <div class="advisor-meta">
+                        Child and Adolescent Psychiatrist<br>
+                        Open to running groups with her non-profit, Bay Area Children's Associates<br>
+                        <a href="https://www.baca.org/sara-heron" target="_blank">CV</a> &middot; <a href="https://www.linkedin.com/in/sara-heron-445b471b9/" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="advisor-item">
+                    <span class="advisor-name">Julie Hertzog</span>
+                    <div class="advisor-meta">
+                        Director, PACER's National Bullying Prevention Center<br>
+                        <a href="https://www.linkedin.com/in/julie-hertzog-9514b9b/" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="advisor-item">
+                    <span class="advisor-name">Prof. Chad Rose, PhD</span>
+                    <div class="advisor-meta">
+                        Associate Professor, University of Missouri<br>
+                        Director, Mizzou Ed Bully Prevention Lab<br>
+                        <a href="https://education.missouri.edu/person/chad-rose/" target="_blank">CV</a> &middot; <a href="https://www.linkedin.com/in/rosechad/" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="advisor-item">
+                    <span class="advisor-name">Prof. James Scott, PhD</span>
+                    <div class="advisor-meta">
+                        Youth Mental Health Research Group, University of Queensland<br>
+                        Developing a study around group therapy for bullying victims<br>
+                        <a href="https://researchers.uq.edu.au/researcher/4537" target="_blank">CV</a> &middot; <a href="https://www.linkedin.com/in/james-scott-38a086183/" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="advisor-item">
+                    <span class="advisor-name">Prof. Sue Swearer, PhD</span>
+                    <div class="advisor-meta">
+                        Co-Director, Bullying Research Network<br>
+                        Chair, Dept of Educational Psychology, University of Nebraska - Lincoln<br>
+                        <a href="https://cehs.unl.edu/edpsych/faculty/susan-swearer/" target="_blank">CV</a> &middot; <a href="https://www.linkedin.com/in/susan-swearer-46585037/" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="advisor-item">
+                    <span class="advisor-name">Emilea Rejman, M.A., PLMHP</span>
+                    <div class="advisor-meta">
+                        Project Director, BELONG (BRAVE Lab), University of Nebraska - Lincoln<br>
+                        <a href="https://bravelab.unl.edu/sites/unl.edu.cehs.brave-lab/files/media/file/Rejman%20CV%202024-4.pdf" target="_blank">CV</a>
+                    </div>
+                </div>
+
+                <div class="advisor-item">
+                    <span class="advisor-name">Dr. Thomas Tarshis, MD</span>
+                    <div class="advisor-meta">
+                        Author, Living with Peer Pressure and Bullying<br>
+                        Founder, Bay Area Children's Associates (non-profit mental health care agency)<br>
+                        <a href="https://www.baca.org/thomas-tarshis" target="_blank">Bio</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page-section').forEach(section => {
+                section.classList.remove('visible');
+            });
+            
+            // Remove active class from nav buttons
+            document.querySelectorAll('.nav-links button').forEach(btn => {
+                btn.classList.remove('active');
+            });
+
+            // Show selected page
+            document.getElementById(pageId).classList.add('visible');
+            
+            // Highlight nav button
+            document.getElementById('nav-' + pageId).classList.add('active');
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
