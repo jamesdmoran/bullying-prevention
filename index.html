@@ -141,6 +141,35 @@
             display: block; /* Shown when active */
         }
 
+        .advisor-item {
+            margin-bottom: 30px;
+        }
+
+        .advisor-name {
+            font-weight: 700;
+            display: block;
+            color: var(--text-main);
+        }
+
+        .advisor-meta {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .advisor-points {
+            margin: 8px 0 6px 0;
+            padding-left: 20px;
+        }
+
+        .advisor-points li {
+            margin-bottom: 6px;
+        }
+
+        .advisor-links {
+            margin-top: 4px;
+            padding-left: 20px;
+        }
+
         .callout-box {
             background-color: #f9f9f9;
             border: 1px solid var(--border);
@@ -241,6 +270,7 @@
                 <button onclick="showPage('home')" id="nav-home" class="active">The Program</button>
                 <button onclick="showPage('role')" id="nav-role">Director Role</button>
                 <button onclick="showPage('research')" id="nav-research">Research</button>
+                <button onclick="showPage('advisors')" id="nav-advisors">Advisors</button>
             </div>
         </div>
     </nav>
@@ -353,6 +383,104 @@
             <ul>
                 <li>Resilience-based group programs can be an effective intervention to reduce bullying.</li>
             </ul>
+        </div>
+
+        <div id="advisors" class="page-section">
+            <h1>Advisors</h1>
+            <p>We are supported by a panel of experts in clinical care, research, and bullying prevention.</p>
+            
+            <div style="margin-top: 40px;">
+                
+                <!-- <div class="advisor-item">
+                    <span class="advisor-name">Dr. Spencer Byrnes, PsyD</span>
+                    <div class="advisor-meta">
+                        Private practice with expertise in group therapy for bullying<br>
+                        <a href="https://www.linkedin.com/in/spencer-byrnes-psy-d-78531678/" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="advisor-item">
+                    <span class="advisor-name">Christine Cauwels</span>
+                    <div class="advisor-meta">
+                        Clinical Director of Therapy, Cerebral<br>
+                        <a href="https://www.linkedin.com/in/christine-cauwels-73a103252/" target="_blank">LinkedIn</a>
+                    </div>
+                </div> -->
+
+                <!-- <div class="advisor-item">
+                    <span class="advisor-name">Julie Hertzog</span>
+                    <div class="advisor-meta">
+                        Director, PACER's National Bullying Prevention Center<br>
+                        <a href="https://www.linkedin.com/in/julie-hertzog-9514b9b/" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="advisor-item">
+                    <span class="advisor-name">Prof. Chad Rose, PhD</span>
+                    <div class="advisor-meta">
+                        Associate Professor, University of Missouri<br>
+                        Director, Mizzou Ed Bully Prevention Lab<br>
+                        <a href="https://education.missouri.edu/person/chad-rose/" target="_blank">CV</a> &middot; <a href="https://www.linkedin.com/in/rosechad/" target="_blank">LinkedIn</a>
+                    </div>
+                </div>
+
+                <div class="advisor-item">
+                    <span class="advisor-name">Prof. James Scott, PhD</span>
+                    <div class="advisor-meta">
+                        Youth Mental Health Research Group, University of Queensland<br>
+                        Developing a study around group therapy for bullying victims<br>
+                        <a href="https://researchers.uq.edu.au/researcher/4537" target="_blank">CV</a> &middot; <a href="https://www.linkedin.com/in/james-scott-38a086183/" target="_blank">LinkedIn</a>
+                    </div>
+                </div> -->
+
+                <div class="advisor-item">
+                    <span class="advisor-name">Prof. Sue Swearer, PhD</span>
+                    <div class="advisor-meta">
+                        <ul class="advisor-points">
+                            <li>Willa Cather Professor of Educational Psychology and Director, Bullying Research and Victim Empowerment (BRAVE) Lab, University of Nebraska - Lincoln</li>
+                            <li>Co-Director, Bullying Research Network</li>
+                            <li>Licensed school psychologist focused on bullying prevention, school climate, and youth mental health</li>
+                            <li>Former Professional Counselor, Center for Pediatric Psychiatry, Children's Medical Center of Dallas</li>
+                        </ul>
+                        <div class="advisor-links"><a href="https://cehs.unl.edu/edpsych/person/susan-swearer/" target="_blank">Profile</a> &middot; <a href="https://www.linkedin.com/in/susan-swearer-46585037/" target="_blank">LinkedIn</a></div>
+                    </div>
+                </div>
+
+                <div class="advisor-item">
+                    <span class="advisor-name">Emilea Rejman, M.A., PLMHP</span>
+                    <div class="advisor-meta">
+                        <ul class="advisor-points">
+                            <li>Project Director, BELONG (BRAVE Lab)</li>
+                            <li>University of Nebraska - Lincoln</li>
+                            <li>Doctoral candidate in School Psychology at UNL, supervised by Dr. Sue Swearer</li>
+                        </ul>
+                        <div class="advisor-links"><a href="https://bravelab.unl.edu/sites/unl.edu.cehs.brave-lab/files/media/file/Rejman%20CV%202024-4.pdf" target="_blank">Profile</a></div>
+                    </div>
+                </div>
+                <div class="advisor-item">
+                    <span class="advisor-name">Dr. Sara Heron, MD</span>
+                    <div class="advisor-meta">
+                        <ul class="advisor-points">
+                            <li>Executive Director, <a href="https://baychildren.org/" target="_blank">Bay Children's Services</a></li>
+                            <li>Child and Adolescent Psychiatrist</li>
+                            <li>MD, University of California San Francisco School of Medicine; Psychiatry Residency (UCSF); Child and Adolescent Psychiatry Fellowship (Stanford University)</li>
+                        </ul>
+                        <div class="advisor-links"><a href="https://baychildren.org/providers" target="_blank">Profile</a> &middot; <a href="https://www.linkedin.com/in/sara-heron-445b471b9/" target="_blank">LinkedIn</a></div>
+                    </div>
+                </div>
+                <div class="advisor-item">
+                    <span class="advisor-name">Dr. Thomas Tarshis, MD</span>
+                    <div class="advisor-meta">
+                        <ul class="advisor-points">
+                            <li>Former AACAP spokesperson on Bullying and Victimization</li>
+                            <li>Author of <em>Living with Peer Pressure and Bullying</em></li>
+                            <li>Author of the Peer Interactions in Primary School (PIPS) Survey: Tarshis TP, Huffman LC. Psychometric properties of the Peer Interactions in Primary School (PIPS) Questionnaire. <em>J Dev Behav Pediatr.</em> 2007 Apr;28(2):125-32. DOI: <a href="https://doi.org/10.1097/01.DBP.0000267562.11329.8f" target="_blank">10.1097/01.DBP.0000267562.11329.8f</a>. PMID: 17435463.</li>
+                        </ul>
+                        <div class="advisor-links"><a href="https://www.baca.org/thomas-tarshis" target="_blank">Profile</a> &middot; <a href="https://www.linkedin.com/in/thomas-tarshis-116a204/" target="_blank">LinkedIn</a></div>
+                    </div>
+                </div>
+
+            </div>
         </div>
 
     </div>
